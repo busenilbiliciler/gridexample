@@ -1,0 +1,507 @@
+
+
+
+{% extends 'grid/base.html' %}
+
+{% block main_content %}
+
+<div class="all" id="all_id">
+
+<div class="page-header" style="text-align: center;">
+    <h4>Management</h4>
+    <a href="/portal" class="btn btn-secondary pull-left"><span class="glyphicon glyphicon-home"></span> Back To Home</a>
+    <a href="/logout" class="btn btn-secondary pull-right"><span class="glyphicon glyphicon-new-window"></span> Log Out</a>
+
+   <br><br>
+
+
+    <br><br>
+
+</div>
+
+
+
+
+<div id="progressitem" class="progress" style="display:none;">
+  <div class="progress-bar progress-bar-striped active" style="width:100%; font-size:bold; text-align:center;" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+  . . .  L O A D I N G . . .
+  </div>
+</div>
+
+
+
+
+    <h4><b><u>Backlogs</u></b></h4>
+
+
+
+<div id="demo"></div>
+<div id="paste"></div>
+
+
+<!--
+    <div class="panel-group">
+
+
+<div id="try1">
+    <div class="panel panel-default" id="div1">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+
+
+
+
+<a data-toggle="collapse" href="#collapse1">Collapsible panel 1</a>
+</h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+      <tr>
+           <td>Panel 1</td>
+           <td><button class="btn1" id="panelbutton1" onclick="copy1()">ok</button></td>
+           <td><div class="but1" id="but1"></div></td>
+       </tr>
+
+      </div>
+-->
+
+
+ <script>
+
+  var jsonObj = {
+
+    '1' : {'collapse': '1', 'panel': '1'},
+
+    '2' : {'collapse': '2', 'panel': '2'},
+
+    '3' : {'collapse': '3', 'panel': '3'},
+
+    '4' : {'collapse': '4', 'panel': '4'},
+
+    '5' : {'collapse': '5', 'panel': '5'},
+
+    '6' : {'collapse': '6', 'panel': '6'},
+
+    '7' : {'collapse': '7', 'panel': '7'},
+
+    '8' : {'collapse': '8', 'panel': '8'}
+
+  };
+
+
+    var countKey = Object.keys(jsonObj).length;
+
+
+
+var codeblocks = [];
+
+for (var i = 1; i <= countKey; i++)
+
+{
+
+
+
+var panelbutton = [];
+var but = [];
+var div = [];
+var tryy = [];
+var panel_button = [];
+
+panelbutton[i] = "panel" + i;
+but[i] = "but" + i;
+div[i] = "div" + i;
+tryy[i] = "tryy" + i;
+panel_button[i] = "panelbutton" + i;
+
+
+codeblocks[i] = '<div id="' + tryy[i] + '">' + '<div class="panel panel-default" id="' + div[i] + '">' + '<div class="panel-heading">' + '<h4 class="panel-title">' +
+
+'<a data-toggle="collapse" href="#' + i + '">Collapsible panel ' + i + '</a>' + '</h4>' + '</div>' + '<div id="' + i + '" class="panel-collapse collapse">' + '<tr>' + '<td>Panel ' + i + '</td>' +
+
+'<td><button class="btn1" id="' + panelbutton[i] + '" onfocus="copy(i)" >ok</button></td>' + '<td><div class="but1" id="' + but[i] + '"></div></td>' + '</tr>' + '</div>' + '<p id="demo1"><div align="right" id="' + panel_button[i] + '"></div></p>' +
+
+'</div>' ;
+
+
+var codeblock = codeblocks[i];
+
+document.write(codeblock);
+
+
+}
+
+
+function copy(x)
+
+     {
+
+
+   var description = document.getElementById('div[x]');
+   document.getElementById('copy').appendChild(description);
+   document.getElementById('panelbutton[x]').disabled = true;
+   var newbutton = document.createElement('button');
+   newbutton.innerHTML = "remove";
+   document.getElementById('but[x]').appendChild(newbutton);
+   newbutton.id = "newbutton";
+   newbutton.onclick = function () {
+
+       var back = document.getElementById('copy');
+
+       document.getElementById('tryy[x]').appendChild(back);
+
+       var elem = document.getElementById('newbutton');
+       elem.parentNode.removeChild(elem); }
+
+       var remove_panelbutton = document.getElementById('panelbutton[x]');
+       remove_panelbutton.parentNode.removeChild(remove_panelbutton);
+
+       var change_button = document.createElement('button');
+       change_button.innerHTML = "ok";
+       document.getElementById('but[x]').appendChild(change_button);
+       change_button.id = "change";
+       change_button.onclick = function () {
+
+   var description2 = document.getElementById('copy')
+   document.getElementById('show').appendChild(description2);
+   var remove_change_button = document.getElementById('change');
+   remove_change_button.parentNode.removeChild(remove_change_button);
+
+
+
+
+     }
+
+     }
+
+
+
+
+</script>
+<!--
+        <p id="demo1"><div align="right" id="panel_button1"></div></p>
+
+
+
+
+
+    </div>
+
+</div>
+
+-->
+
+
+<!--
+
+<div id="try2">
+    <div class="panel panel-default" id="div2">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+
+
+
+
+
+<a data-toggle="collapse" href="#collapse2">Collapsible panel 2</a>
+</h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+      <tr>
+           <td>Panel 2</td>
+           <td><button class="btn2" id="panelbutton2" onclick="copy2()">ok</button></td>
+          <td><div class="but2" id="but2"></div></td>
+       </tr>
+
+      </div>
+
+
+
+ <script>
+
+
+function copy2()
+
+     {
+
+
+   var description2 = document.getElementById('div2')
+   document.getElementById('copy2').appendChild(description2);
+   document.getElementById("panelbutton2").disabled = true;
+   var newbutton2 = document.createElement("button");
+   newbutton2.innerHTML = "remove";
+   document.getElementById('but2').appendChild(newbutton2);
+   newbutton2.id = "newbutton2";
+   newbutton2.onclick = function () {
+
+       var back2 = document.getElementById('copy2');
+
+       document.getElementById('try2').appendChild(back2);
+
+       var elem2 = document.getElementById('newbutton2');
+       elem2.parentNode.removeChild(elem2); }
+
+       var remove_panelbutton2 = document.getElementById('panelbutton2');
+       remove_panelbutton2.parentNode.removeChild(remove_panelbutton2);
+
+       var change_button2 = document.createElement("button");
+       change_button2.innerHTML = "ok";
+       document.getElementById('but2').appendChild(change_button2);
+       change_button2.id = "change2";
+       change_button2.onclick = function () {
+
+   var description22 = document.getElementById('copy2')
+   document.getElementById('show2').appendChild(description22);
+   var remove_change_button2 = document.getElementById('change2');
+   remove_change_button2.parentNode.removeChild(remove_change_button2);
+
+
+
+
+     }
+
+     }
+
+
+
+
+
+</script>
+
+         <p id="demo2"></p>
+          <div align="right" id="panel_button2"></div>
+
+
+
+
+    </div>
+    </div>
+
+-->
+<!--
+
+<div id="try3">
+     <div class="panel panel-default" id="div3">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+
+
+
+ <a data-toggle="collapse" href="#collapse3">Collapsible panel 3</a>
+</h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+      <tr>
+           <td>Panel 3</td>
+           <td><button class="btn3" id="panelbutton3" onclick="copy3()">ok</button></td>
+           <td><div class="but3" id="but3"></div></td>
+       </tr>
+      </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+ <script>
+
+
+
+function copy3()
+
+     {
+
+
+   var description3 = document.getElementById('div3')
+   document.getElementById('copy3').appendChild(description3);
+   document.getElementById("panelbutton3").disabled = true;
+   var newbutton3 = document.createElement("button");
+   newbutton3.innerHTML = "remove";
+   document.getElementById('but3').appendChild(newbutton3);
+   newbutton3.id = "newbutton3";
+   newbutton3.onclick = function () {
+
+       var back3 = document.getElementById('copy3');
+
+       document.getElementById('try3').appendChild(back3);
+
+       var elem3 = document.getElementById('newbutton3');
+       elem3.parentNode.removeChild(elem3); }
+
+       var remove_panelbutton3 = document.getElementById('panelbutton3');
+       remove_panelbutton3.parentNode.removeChild(remove_panelbutton3);
+
+       var change_button3 = document.createElement("button");
+       change_button3.innerHTML = "ok";
+       document.getElementById('but3').appendChild(change_button3);
+       change_button3.id = "change3";
+       change_button3.onclick = function () {
+
+   var description33 = document.getElementById('copy3')
+   document.getElementById('show3').appendChild(description33);
+   var remove_change_button3 = document.getElementById('change3');
+   remove_change_button3.parentNode.removeChild(remove_change_button3);
+
+
+
+
+     }
+
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+        <p id="demo3"></p>
+        <div align="right" id="panel_button3"></div>
+
+
+
+
+    </div>
+
+-->
+
+
+    <h4><b><u>History</u></b></h4>
+    <div class="panel-group">
+
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+
+
+        <h4 class="panel-title">
+
+
+
+            <a data-toggle="collapse"></a>
+
+            <div class="form-group row">
+
+          <div class="col-xs-1">
+                <p class="form-control-static"><span class="glyphicon glyphicon-plus"></span></p>
+            </div>
+
+
+
+<!--
+            <div class="col-xs-3">
+                <p class="form-control-static truncate">4 In A Row, Autozine, Awale, Blackjack, Bubble Crash, Cinetrailer, Dropbox, Facebook, Filmbox, Flickr, Foreca, Gismeteo, Google, Internet Browser, Itsmy, Joomeo, Kanal D, Karnaval, Meteonews, Netflix, Radioline, Reise Tv, Sabah, Smart Games, Teb, Toon Goggles, Twitter, Wetter.Net, 94, Accuweather, Ntv Hava, Trt Haber, Yemek Tarifleri, Winx</p>
+            </div>
+
+            <div class="col-xs-4">
+                <p class="form-control-static truncate">"countries" : null, "brands" : null, "devices" : null, "versions" : null</p>
+            </div>
+
+            <div class="col-xs-4">
+                <p class="form-control-static truncate">Common apps for all Countries, Brands (except Medion group, Panasonic, Profilo) and Models.</p>
+            </div>
+-->
+
+
+
+
+
+<div id="copy" class="copy_class"></div>
+<div id="copy2" class="copy_class"></div>
+<div id="copy3" class="copy_class"></div>
+
+
+
+            </div>
+
+
+</h4>
+
+
+
+
+
+
+
+
+        </div>
+
+        <div id="history1" class="panel-collapse collapse">
+            <div class="panel-body">Panel Body</div>
+        </div>
+
+
+    </div>
+    </div>
+
+
+
+
+ <h4><b><u>Operations</u></b></h4>
+
+
+    <div class="panel-group">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+<div id="show" class="copy_class"></div>
+ <div id="show2" class="copy_class"></div>
+<div id="show3" class="copy_class"></div>
+
+       </div>
+    </div>
+    </div>
+
+</div>
+
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
